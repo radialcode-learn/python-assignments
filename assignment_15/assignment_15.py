@@ -22,11 +22,16 @@ f = open("test.json")
 data = json.load(f)
 
 
-def myFunc(x):
-    if x < 18:
-        return False
-    else:
-        return True
+def newIndex(list, key_to_find):
+    # List of all objects with similar qualifierName e.g. "regex"
+    filterList = []
+    for x in list:
+        keyName = next(iter(x))
+        if key_to_find in keyName:
+            filterList.append(x)
+
+    # Returning length here e.g. 0, 1, 2, 3
+    return len(filterList)
 
 
 def convertFormat(dict_data):
@@ -44,8 +49,12 @@ def convertFormat(dict_data):
         qualifierNameKey = f"{qualifire}_{listKeyIndex}"
 
         dictToAdd = {qualifierNameKey: {qualifire: x["filter"]}}
+        # Either do an assignment if no key exists
+        # if a key already exists, we do append to the existing
         if key in result:
-            # filter(, result[key])
+            # We're are updating the value of qualifierNameKey i.e. to date_2 for this assignment at the end of the loop
+            qualifierNameKey = f"{qualifire}_{newIndex(result[key], qualifire)+1}"
+            dictToAdd = {qualifierNameKey: {qualifire: x["filter"]}}
             result[key].append(dictToAdd)
         else:
             result[key] = [dictToAdd]
