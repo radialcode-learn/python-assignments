@@ -1,0 +1,38 @@
+[
+  {
+    "qualifierName": "regex",
+    "type": "Exclude",
+    "source": "Mails",
+    "filter": "/filter/"
+  },
+  {
+    "qualifierName": "interval",
+    "type": "Exclude",
+    "source": "Mails",
+    "filter": "interval"
+  },
+  {
+    "qualifierName": "prefix",
+    "type": "Exclude",
+    "source": "Bucket",
+    "filter": "name"
+  },
+  {
+    "qualifierName": "match",
+    "type": "Exclude",
+    "source": "Mails",
+    "filter": "name"
+  },
+  {
+    "qualifierName": "date",
+    "type": "Include",
+    "source": "Mails",
+    "filter": "mails"
+  },
+  {
+    "qualifierName": "date",
+    "type": "Include",
+    "source": "Mails",
+    "filter": "hola mails"
+  }
+]

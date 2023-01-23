@@ -1,0 +1,40 @@
+{
+  "exclusions_inclusions": {
+    "mails_exclusion": [
+      {
+        "regex_1": {
+          "regex": "/filter/"
+        }
+      },
+      {
+        "interval_1": {
+          "interval": "interval"
+        }
+      },
+      {
+        "match_1": {
+          "match": "name"
+        }
+      }
+    ],
+    "bucket_exclusion": [
+      {
+        "prefix_1": {
+          "prefix": "name"
+        }
+      }
+    ],
+    "mails_inclusion": [
+      {
+        "date_1": {
+          "date": "mails"
+        }
+      },
+      {
+        "date_2": {
+          "date": "hola mails"
+        }
+      }
+    ]
+  }
+}
