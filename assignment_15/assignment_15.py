@@ -22,10 +22,11 @@ f = open("test.json")
 data = json.load(f)
 
 
-def newIndex(list, key_to_find):
+def findIndex(list, key_to_find):
     # List of all objects with similar qualifierName e.g. "regex"
     filterList = []
     for x in list:
+        # Get first element of a disctionary, https://stackoverflow.com/questions/30362391/how-do-you-find-the-first-key-in-a-dictionary
         keyName = next(iter(x))
         if key_to_find in keyName:
             filterList.append(x)
@@ -53,13 +54,13 @@ def convertFormat(dict_data):
         # if a key already exists, we do append to the existing
         if key in result:
             # We're are updating the value of qualifierNameKey i.e. to date_2 for this assignment at the end of the loop
-            qualifierNameKey = f"{qualifire}_{newIndex(result[key], qualifire)+1}"
+            qualifierNameKey = f"{qualifire}_{findIndex(result[key], qualifire)+1}"
             dictToAdd = {qualifierNameKey: {qualifire: x["filter"]}}
             result[key].append(dictToAdd)
         else:
             result[key] = [dictToAdd]
 
-        print(result)
+    print(result)
 
 
 convertFormat(data)
